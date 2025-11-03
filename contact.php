@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Recipient email address
-    $to = ".com"; // Replace with your email address
+    $to = "parthbuilds@gmail.com"; // Replace with your email address
 
     // Email subject and body
     $subject = "New Contact Submission from $name";
