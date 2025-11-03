@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $to = ".com"; // Replace with your email address
 
     // Email subject and body
-    $subject = "New Contact Form Submission from $name";
+    $subject = "New Contact Submission from $name";
     $body = "You have received a new message from your website contact form.\n\n";
     $body .= "Name: $name\n";
     $body .= "Email: $email\n";
