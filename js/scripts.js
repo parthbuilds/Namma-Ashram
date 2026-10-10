@@ -83,20 +83,20 @@
   // END DOCUMENT READY
 
 
-  // DATA BACKGROUND IMAGE
-  var pageSection = $("*");
-  pageSection.each(function (indx) {
-    if ($(this).attr("data-background")) {
-      $(this).css("background", "url(" + $(this).data("background") + ")");
-    }
-  });
-
-
-  // DATA BACKGROUND COLOR
-  var pageSection = $("*");
-  pageSection.each(function (indx) {
-    if ($(this).attr("data-background")) {
-      $(this).css("background", $(this).data("background"));
+  // DATA BACKGROUND IMAGE & COLOR
+  $("*[data-background]").each(function () {
+    var bg = $(this).attr("data-background");
+    if (bg) {
+      if (bg.indexOf("#") === 0 || bg.indexOf("rgb") === 0) {
+        $(this).css("background-color", bg);
+      } else {
+        $(this).css({
+          "background-image": "url(" + bg + ")",
+          "background-repeat": "no-repeat",
+          "background-size": "cover",
+          "background-position": "center center"
+        });
+      }
     }
   });
 
@@ -140,6 +140,16 @@
     pagination: {
       el: '.swiper-fraction',
       type: 'fraction',
+      formatFractionCurrent: function (number) {
+        return ('0' + number).slice(-2);
+      },
+      formatFractionTotal: function (number) {
+        return ('0' + number).slice(-2);
+      },
+      renderFraction: function (currentClass, totalClass) {
+        return '<span class="' + currentClass + '"></span>' +
+               '<span class="' + totalClass + '"></span>';
+      }
     },
 
 
