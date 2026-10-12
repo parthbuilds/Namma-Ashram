@@ -136,6 +136,10 @@
       prevEl: '.button-prev',
     },
     touchRatio: 0,
+    allowTouchMove: false,
+    simulateTouch: false,
+    touchStartPreventDefault: false,
+    touchStartForcePreventDefault: false,
 
     pagination: {
       el: '.swiper-fraction',
@@ -167,6 +171,10 @@
     centeredSlides: true,
     slidesPerView: 1,
     touchRatio: 0,
+    allowTouchMove: false,
+    simulateTouch: false,
+    touchStartPreventDefault: false,
+    touchStartForcePreventDefault: false,
     slideToClickedSlide: false,
     loop: true,
     loopedSlides: 1,

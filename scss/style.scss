@@ -312,23 +312,26 @@ button[type="submit"]{height: 70px; display: inline-block; font-size: 14px; font
 
 
 /* SLIDER */
-.slider{width: 100%; height: 100vh; display: flex; flex-wrap: wrap; align-items: center; position: relative; overflow: hidden;
+.slider{width: 100%; height: 100vh; display: flex; flex-wrap: wrap; align-items: center; position: relative; overflow: hidden; touch-action: pan-y !important;
 	.container-fluid{ width: calc(100% - 120px); margin: 0 60px;}
-	.kinetic-slider{width: 100vw; height: 100vh; position: absolute; left: 0; top: 0; background: $color-dark;
-		canvas{width: 100% !important; height: auto !important; transform: none !important;}}
-	.kinetic-texts{width: 100%; height: 100vh; display: flex; flex-wrap: wrap; padding-top: 32px; color: #fff;
-		.swiper-slide{display: flex; flex-wrap: wrap; align-items: center; 
+	.kinetic-slider{width: 100vw; height: 100vh; position: absolute; left: 0; top: 0; background: $color-dark; touch-action: pan-y !important; pointer-events: none;
+		canvas{width: 100% !important; height: auto !important; transform: none !important; pointer-events: none;}}
+	.kinetic-texts{width: 100%; height: 100vh; display: flex; flex-wrap: wrap; padding-top: 32px; color: #fff; touch-action: pan-y !important;
+		.swiper-slide{display: flex; flex-wrap: wrap; align-items: center; touch-action: pan-y !important;
 			*{@include transition; opacity: 0;}
 			&.swiper-slide-active *{opacity: 1;}
 			h1{font-size: 126px; font-weight: 400; @include font-second; line-height: 1; margin-bottom: 30px;}
 			p{font-size: 19px; margin: 0; opacity: 0.7; padding-left: 30px; border-left: 3px solid #fff; margin-left: 10px;}}}
 	
-	.slider-images{width: 100%; height: 100%; display: flex; flex-wrap: wrap; align-items: center; position: absolute; left: 0; top: 0; overflow: hidden;
+	.slider-images{width: 100%; height: 100%; display: flex; flex-wrap: wrap; align-items: center; position: absolute; left: 0; top: 0; overflow: hidden; touch-action: pan-y !important; pointer-events: none;
+		.swiper-wrapper, .swiper-slide, .swiper-slide .mobile-slide{touch-action: pan-y !important; pointer-events: none;}
+		.slider-nav, .slider-nav *, .button-prev, .button-next, .swiper-fraction, .swiper-pagination{pointer-events: auto;}
 		.swiper-slide{background-size: cover !important; 
 			.mobile-slide{width: 100%; height: 100%; position: absolute; left: 0; top: 0; background-size: cover !important; display: none;}}}
 	
-	.slider-texts{width: 100%; display: flex; flex-wrap: wrap; padding-top: 32px;
-		.svg-morph{position: absolute; top: calc(50% - 200px); left: 50%; transform: translateX(-140%); 
+	.slider-texts{width: 100%; display: flex; flex-wrap: wrap; padding-top: 32px; touch-action: pan-y !important;
+		.swiper-wrapper, .swiper-slide{touch-action: pan-y !important;}
+		.svg-morph{position: absolute; top: calc(50% - 200px); left: 50%; transform: translateX(-140%); pointer-events: none;
 			path{fill:$color-main;  animation-name: svg-morph;  @include animation-timing; animation-duration: 8s; animation-fill-mode:both; animation-direction: alternate-reverse; animation-iteration-count: infinite; animation-play-state:running;}}
 		.swiper-slide{display: flex; flex-wrap: wrap; align-items: center;
 			h1{font-size: 126px; font-weight: 400; @include font-second; line-height: 1; margin-bottom: 30px;}
@@ -949,6 +952,16 @@ button[type="submit"]{height: 70px; display: inline-block; font-size: 14px; font
 	.slider .swiper-fraction{display: none;}
 	.slider .slider-images .button-prev{margin-left: 0; width: 60px; height: 60px;}
 	.slider .slider-images .button-next{width: 60px; height: 60px;}
+	.slider,
+	.slider .slider-images,
+	.slider .slider-images .swiper-wrapper,
+	.slider .slider-images .swiper-slide,
+	.slider .slider-images .swiper-slide .mobile-slide{touch-action: pan-y !important; pointer-events: none;}
+	.slider .slider-images .slider-nav,
+	.slider .slider-images .button-prev,
+	.slider .slider-images .button-next{pointer-events: auto;}
+	.slider .slider-texts{touch-action: pan-y;}
+	.slider .slider-texts .svg-morph{pointer-events: none;}
 	.page-header .inner{padding: 0 15px;}
 	.page-header .inner h1{font-size: 42px;}
 	.page-header .inner p{font-size: 17px; padding-right: 0;}

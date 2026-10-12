@@ -1030,6 +1030,7 @@ button[type="submit"] i {
   align-items: center;
   position: relative;
   overflow: hidden;
+  touch-action: pan-y !important;
 }
 .slider .container-fluid {
   width: calc(100% - 120px);
@@ -1042,11 +1043,14 @@ button[type="submit"] i {
   left: 0;
   top: 0;
   background: #080808;
+  touch-action: pan-y !important;
+  pointer-events: none;
 }
 .slider .kinetic-slider canvas {
   width: 100% !important;
   height: auto !important;
   transform: none !important;
+  pointer-events: none;
 }
 .slider .kinetic-texts {
   width: 100%;
@@ -1055,11 +1059,13 @@ button[type="submit"] i {
   flex-wrap: wrap;
   padding-top: 32px;
   color: #fff;
+  touch-action: pan-y !important;
 }
 .slider .kinetic-texts .swiper-slide {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  touch-action: pan-y !important;
 }
 .slider .kinetic-texts .swiper-slide * {
   -webkit-transition: .25s ease-in-out;
@@ -1087,7 +1093,9 @@ button[type="submit"] i {
   border-left: 3px solid #fff;
   margin-left: 10px;
 }
-.slider .slider-images {
+.slider .slider-images,
+.swiper-container.slider-images,
+.swiper-container.slider-images.swiper-container-vertical {
   width: 100%;
   height: 100%;
   display: flex;
@@ -1097,6 +1105,22 @@ button[type="submit"] i {
   left: 0;
   top: 0;
   overflow: hidden;
+  touch-action: pan-y !important;
+  pointer-events: none;
+}
+.slider .slider-images .swiper-wrapper,
+.slider .slider-images .swiper-slide,
+.slider .slider-images .swiper-slide .mobile-slide {
+  touch-action: pan-y !important;
+  pointer-events: none;
+}
+.slider .slider-images .slider-nav,
+.slider .slider-images .slider-nav *,
+.slider .slider-images .button-prev,
+.slider .slider-images .button-next,
+.slider .slider-images .swiper-fraction,
+.slider .slider-images .swiper-pagination {
+  pointer-events: auto;
 }
 .slider .slider-images .swiper-slide {
   background-size: cover !important;
@@ -1115,12 +1139,18 @@ button[type="submit"] i {
   display: flex;
   flex-wrap: wrap;
   padding-top: 32px;
+  touch-action: pan-y !important;
+}
+.slider .slider-texts .swiper-wrapper,
+.slider .slider-texts .swiper-slide {
+  touch-action: pan-y !important;
 }
 .slider .slider-texts .svg-morph {
   position: absolute;
   top: calc(50% - 200px);
   left: 50%;
   transform: translateX(-140%);
+  pointer-events: none;
 }
 .slider .slider-texts .svg-morph path {
   fill: #ef9719;
@@ -1196,6 +1226,7 @@ button[type="submit"] i {
   margin-top: -70px;
   position: relative;
   z-index: 3;
+  pointer-events: auto;
 }
 .slider .slider-nav .button-prev {
   width: 64px;
@@ -1325,6 +1356,8 @@ button[type="submit"] i {
   top: 0;
   background-size: cover !important;
   display: none;
+  pointer-events: none;
+  touch-action: pan-y;
 }
 .page-header .inner {
   width: 100%;
@@ -3418,6 +3451,29 @@ button[type="submit"] i {
     display: block;
   }
 
+  .slider,
+  .slider .slider-images,
+  .slider .slider-images .swiper-wrapper,
+  .slider .slider-images .swiper-slide,
+  .slider .slider-images .swiper-slide .mobile-slide {
+    touch-action: pan-y !important;
+    pointer-events: none;
+  }
+
+  .slider .slider-images .slider-nav,
+  .slider .slider-images .button-prev,
+  .slider .slider-images .button-next {
+    pointer-events: auto;
+  }
+
+  .slider .slider-texts {
+    touch-action: pan-y;
+  }
+
+  .slider .slider-texts .svg-morph {
+    pointer-events: none;
+  }
+
   .page-header .mobile-slide {
     display: block;
   }
@@ -3654,6 +3710,29 @@ button[type="submit"] i {
   .slider .slider-images .button-next {
     width: 60px;
     height: 60px;
+  }
+
+  .slider,
+  .slider .slider-images,
+  .slider .slider-images .swiper-wrapper,
+  .slider .slider-images .swiper-slide,
+  .slider .slider-images .swiper-slide .mobile-slide {
+    touch-action: pan-y !important;
+    pointer-events: none;
+  }
+
+  .slider .slider-images .slider-nav,
+  .slider .slider-images .button-prev,
+  .slider .slider-images .button-next {
+    pointer-events: auto;
+  }
+
+  .slider .slider-texts {
+    touch-action: pan-y;
+  }
+
+  .slider .slider-texts .svg-morph {
+    pointer-events: none;
   }
 
   .page-header .inner {
